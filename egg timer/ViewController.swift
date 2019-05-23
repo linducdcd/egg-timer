@@ -9,16 +9,60 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var i = 256
+    var time = Timer()
+    
+    @objc func decrease() {
+        
 
+        timerShow.text = String(i)
+        i -= 1
+        
+    }
+    
+
+    
+    //MARK: - nav Bar
+    @IBAction func playButton(_ sender: UIBarButtonItem) {
+        
+        time = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.decrease), userInfo: nil, repeats: true)
+        
+    }
+    
+    @IBAction func puseButton(_ sender: UIBarButtonItem) {
+        time.invalidate()
+    }
+    
+    
+    //MARK: - buttom Bar
+    @IBAction func tenMButton(_ sender: UIBarButtonItem) {
+        i -= 10
+    }
+    
+    @IBAction func tenPButton(_ sender: UIBarButtonItem) {
+        i += 10
+    }
+    
+    @IBAction func resetButton(_ sender: UIBarButtonItem) {
+        i = 256
+    }
+    
+    
+    @IBOutlet weak var timerShow: UILabel!
+    
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
 
 
 }
