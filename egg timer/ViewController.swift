@@ -18,11 +18,13 @@ class ViewController: UIViewController {
         if i > 0{
         timerShow.text = String(i)
         i -= 1
-        } else {
-            time.invalidate()
+        }
+        if  i == 0 {
+            
             
             timerShow.text = "0 , it's Finished"
 
+            time.invalidate()
             
         }
     }
