@@ -15,10 +15,16 @@ class ViewController: UIViewController {
     
     @objc func decrease() {
         
-
+        if i > 0{
         timerShow.text = String(i)
         i -= 1
-        
+        } else {
+            time.invalidate()
+            
+            timerShow.text = "0 , it's Finished"
+
+            
+        }
     }
     
 
